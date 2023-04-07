@@ -1,7 +1,5 @@
 import styles from "./ContactForm.module.css"
-// import { nanoid } from "nanoid"
 import { getContacts } from "../../redux/contacts/contactsSlice"
-// addContact,
 import { useDispatch, useSelector } from "react-redux"
 import { Notify } from "notiflix/build/notiflix-notify-aio"
 import { addContactThunk } from "redux/thunks/contactsThunk"
@@ -23,15 +21,8 @@ export default function ContactForm() {
 			Notify.failure("This contact is already exist")
 			return
 		}
-		// dispatch(
-		// 	addContact({
-		// 		name,
-		// 		number,
-		// 		id: nanoid(),
-		// 	})
-		// )
 		Notify.success("Contact is added successfuly")
-		dispatch(addContactThunk(newContact)) //{name, number}
+		dispatch(addContactThunk(newContact)) 
 		form.reset()
 	}
 
